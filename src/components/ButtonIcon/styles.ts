@@ -1,0 +1,27 @@
+import { styled } from "styled-components/native";
+import { TouchableOpacity } from "react-native";
+import { MaterialIcons } from '@expo/vector-icons'
+
+export type ButtonIconTypeStyleProps = 'PRIMARY' | 'SECONDARY'
+
+type Props = {
+    type: ButtonIconTypeStyleProps
+}
+
+export const Container = styled(TouchableOpacity)`
+    min-height: 56px;
+    max-height: 56px;
+    width: 56px;
+
+    margin-left: 16px;
+
+    align-items: center;
+    justify-content: center;
+`;
+
+export const Icon = styled(MaterialIcons).attrs<Props>(({theme, type}) => ({
+    size: 24,
+    color: type === 'PRIMARY' ? theme.COLORS.GREEN_700 : theme.COLORS.RED,
+}))`
+
+`;
